@@ -10,7 +10,18 @@
       rel="stylesheet"
       type="text/css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              raleway: ["Raleway", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
     <!-- Raleway fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +37,7 @@
   </head>
   <body class="w-11/12 mx-auto font-raleway">
     <header class="my-8">
+      <!-- navbar start -->
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
@@ -84,10 +96,12 @@
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-              /></svg
-          ></a>
+              />
+            </svg>
+          </a>
         </div>
       </div>
+      <!-- navbar end -->
     </header>
   </body>
 </html>
