@@ -448,31 +448,33 @@
                 >
                   <span
                     >Seat
-                    <span class="text-white bg-[#1DD100] text-sm px-2 rounded"
+                    <span
+                      id="selected-seat-count"
+                      class="text-white bg-[#1DD100] text-sm px-2 rounded"
                       >0</span
                     ></span
                   >
                   <span>Class</span>
                   <span>Price</span>
                 </div>
-                <div class="flex justify-between text-sm">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+                <div
+                  id="selected-seat-list-"
+                  class="flex justify-between text-sm"
+                ></div>
                 <div
                   class="flex justify-between font-semibold border-t border-gray-300 mt-4 pt-2"
                 >
                   <span>Total Price</span>
-                  <span>BDT </span>
+                  <span>BDT <span id="total-price">0</span></span>
                 </div>
-                <div class="flex items-center mt-4 gap-2">
+                <div id="coupon-input" class="flex items-center mt-4 gap-2">
                   <input
                     type="text"
                     placeholder="Have any cuppon?"
                     class="w-full border rounded-full px-3 py-2 bg-white"
                   />
                   <button
+                    id="apply-coupon"
                     class="bg-[#1DD100] text-white px-4 py-2 rounded-full"
                   >
                     Apply
@@ -480,7 +482,7 @@
                 </div>
                 <div class="flex justify-between font-semibold mt-4 pt-2">
                   <span>Grand Total</span>
-                  <span>BDT </span>
+                  <span>BDT <span id="grand-total">0</span></span>
                 </div>
               </div>
               <div class="mt-6 space-y-4 gap-4">
@@ -527,5 +529,6 @@
       <!-- booking end -->
     </main>
     <!-- main end -->
+    <script src="scripts/index.js"></script>
   </body>
 </html>
