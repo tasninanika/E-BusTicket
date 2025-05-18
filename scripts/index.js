@@ -96,7 +96,6 @@ nextBtn.addEventListener("click", () => {
 
 // Continue button to close modal and clear everything
 document.querySelector("#close-modal").addEventListener("click", () => {
-  // Hide the modal
   modal.classList.add("hidden");
 
   // Clear input fields
@@ -104,7 +103,7 @@ document.querySelector("#close-modal").addEventListener("click", () => {
   emailInput.value = "";
   phoneInput.value = "";
 
-  // Reset seat selection
+  // Reset seat
   selectedSeats.forEach((seatNum) => {
     const seat = Array.from(seats).find((s) => s.textContent === seatNum);
     if (seat) {
@@ -120,6 +119,5 @@ document.querySelector("#close-modal").addEventListener("click", () => {
   totalPrice.textContent = "0";
   grandTotal.textContent = "0";
 
-  // Optionally clear coupon input
   couponInput.value = "";
 });
