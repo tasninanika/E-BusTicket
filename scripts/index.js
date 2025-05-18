@@ -15,6 +15,17 @@ const modal = document.querySelector("#success-modal");
 let selectedSeats = [];
 let seatPrice = 550;
 
+// ✅ Toast function
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.remove("hidden");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 3000); // hide after 3 seconds
+}
+
 // Seat select/deselect
 seats.forEach((seat) => {
   seat.addEventListener("click", () => {
