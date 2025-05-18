@@ -6,23 +6,26 @@ const grandTotal = document.querySelector("#grand-total");
 const applyBtn = document.querySelector("#apply-coupon");
 const couponInput = document.querySelector("#coupon-code");
 
+const nameInput = document.querySelector("#user-name");
+const emailInput = document.querySelector("#user-email");
+const phoneInput = document.querySelector("#user-phone");
+const nextBtn = document.querySelector("#next-button");
+const modal = document.querySelector("#success-modal");
+
 let selectedSeats = [];
 let seatPrice = 550;
 
+// Seat select/deselect
 seats.forEach((seat) => {
   seat.addEventListener("click", () => {
     const seatNum = seat.textContent;
 
     if (selectedSeats.includes(seatNum)) {
-      // Deselect seat
       selectedSeats = selectedSeats.filter((s) => s !== seatNum);
-
       seat.classList.remove("bg-[#1DD100]", "text-white");
       seat.classList.add("bg-gray-200", "text-gray-500");
     } else {
-      // Select seat
       selectedSeats.push(seatNum);
-
       seat.classList.remove("bg-gray-200", "text-gray-500");
       seat.classList.add("bg-[#1DD100]", "text-white");
     }
@@ -31,9 +34,9 @@ seats.forEach((seat) => {
   });
 });
 
+// Update Summary
 function updateSummary() {
   seatCount.textContent = selectedSeats.length;
-
   seatContainer.innerHTML = "";
 
   selectedSeats.forEach((seatNum) => {
@@ -41,7 +44,7 @@ function updateSummary() {
       <div class="flex justify-between mb-1 w-full">
         <span>${seatNum}</span>
         <span>Economy</span>
-        <span>${seatPrice}</span>
+        <span>BDT ${seatPrice}</span>
       </div>
     `;
   });
@@ -55,6 +58,7 @@ function updateSummary() {
   grandTotal.textContent = (total - discount).toFixed(2);
 }
 
+// Coupon Discount
 function getDiscount(code, total) {
   const c = code.replace(/\s+/g, "").toLowerCase();
   if (c === "new15") {
@@ -66,6 +70,34 @@ function getDiscount(code, total) {
   }
 }
 
+// Apply Coupon
 applyBtn.addEventListener("click", () => {
   updateSummary();
 });
+
+// NEXT button check and show modal
+nextBtn.addEventListener("click", () => {
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const phone = phoneInput.value.trim();
+
+  if (selectedSeats.length === 0) {
+    alert("Please select at least one seat.");
+    return;
+  }
+
+  if (!name || !email || !phone) {
+    alert("Please fill out name, email and phone number.");
+    return;
+  }
+
+  modal.classList.remove("hidden");
+});
+
+// Close modal function
+function closeModal() {
+  modal.classList.add("hidden");
+
+  // Optional: reset everything
+  // location.reload();
+}
