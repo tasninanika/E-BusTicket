@@ -436,17 +436,19 @@
             </div>
 
             <!-- Booking Summary -->
-            <div class="w-[40%] px-10">
+            <div class="w-[40%] px-10 font-inter">
               <h2
                 class="text-2xl font-bold mb-4 border-b border-dashed border-gray-300 pb-4"
               >
                 Select Your Seat
               </h2>
               <div class="bg-[#F7F8F8] p-4 rounded-lg">
-                <div class="flex justify-between font-medium mb-3">
+                <div
+                  class="flex justify-between font-medium mb-3 pb-3 border-b border-dashed border-gray-300"
+                >
                   <span
                     >Seat
-                    <span class="text-white bg-[#1DD100] px-2 rounded"
+                    <span class="text-white bg-[#1DD100] text-sm px-2 rounded"
                       >2</span
                     ></span
                   >
@@ -464,7 +466,7 @@
                   <span>550</span>
                 </div>
                 <div
-                  class="flex justify-between font-semibold border-t mt-4 pt-2"
+                  class="flex justify-between font-semibold border-t border-gray-300 mt-4 pt-2"
                 >
                   <span>Total Price</span>
                   <span>BDT 1100</span>
@@ -473,35 +475,44 @@
                   <input
                     type="text"
                     placeholder="Have any cuppon?"
-                    class="w-full border rounded px-3 py-2"
+                    class="w-full border rounded-full px-3 py-2 bg-white"
                   />
-                  <button class="bg-[#1DD100] text-white px-4 py-2 rounded">
+                  <button
+                    class="bg-[#1DD100] text-white px-4 py-2 rounded-full"
+                  >
                     Apply
                   </button>
                 </div>
-                <div
-                  class="flex justify-between font-semibold border-t mt-4 pt-2"
-                >
+                <div class="flex justify-between font-semibold mt-4 pt-2">
                   <span>Grand Total</span>
                   <span>BDT 1100</span>
                 </div>
               </div>
-              <div class="mt-6 space-y-4">
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  class="w-full border rounded px-3 py-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Enter your phone number"
-                  class="w-full border rounded px-3 py-2"
-                />
-                <input
-                  type="email"
-                  placeholder="Enter your email id"
-                  class="w-full border rounded px-3 py-2"
-                />
+              <div class="mt-6 space-y-4 gap-4">
+                <div>
+                  <label for="" class="font-semibold">Passenger Name*</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    class="w-full border rounded-lg px-3 py-3 mt-3"
+                  />
+                </div>
+                <div>
+                  <label for="" class="font-semibold">Phone Number*</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your phone number"
+                    class="w-full border rounded-lg px-3 py-3 mt-3"
+                  />
+                </div>
+                <div>
+                  <label for="" class="font-semibold">Email ID</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email id"
+                    class="w-full border rounded-lg px-3 py-3 mt-3"
+                  />
+                </div>
                 <button
                   class="w-full bg-[#1DD100] text-white font-bold py-2 rounded"
                 >
