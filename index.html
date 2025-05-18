@@ -532,9 +532,10 @@
     <!-- main end -->
     <!-- footer -->
     <footer
-      class="footer sm:footer-horizontal bg-neutral text-neutral-content px-32 py-20 font-inter flex flex-col"
+      class="footer sm:footer-horizontal bg-neutral text-neutral-content px-8 sm:px-32 py-20 font-inter flex flex-col gap-10"
     >
-      <div class="flex justify-between">
+      <!-- Upper section -->
+      <div class="flex flex-col sm:flex-row justify-between w-full">
         <aside>
           <h2 class="text-[36px] font-bold">P-Ticket</h2>
           <p class="text-gray-400 mt-4">
@@ -542,24 +543,27 @@
             daily commuting better.
           </p>
         </aside>
-        <nav>
+        <nav class="mt-8 sm:mt-0">
           <h6 class="text-white text-[20px] mb-3">Download our app</h6>
-          <div class="grid grid-flow-col gap-4">
-            <a class="flex gap-3 items-center">
-              <img src="images/playstore.png" alt="" />
-              <div>
-                <p class="uppercase text-xs">Get it on</p>
-                <h2 class="text-lg">Google Play</h2>
-              </div>
-            </a>
+          <div class="flex items-center gap-3">
+            <img src="images/playstore.png" alt="" />
+            <div>
+              <p class="uppercase text-xs">Get it on</p>
+              <h2 class="text-lg">Google Play</h2>
+            </div>
           </div>
         </nav>
       </div>
-      <div>
-        <div>
-          <p>@all rights reserved, P-Ticket services limited.2024</p>
-        </div>
-        <div>
+
+      <!-- Border -->
+      <div class="border-t border-dashed border-gray-400 my-6 w-full"></div>
+
+      <!-- Lower section -->
+      <div
+        class="flex justify-between w-full text-sm text-gray-400 flex-col sm:flex-row gap-3 sm:gap-0"
+      >
+        <p>@all rights reserved, P-Ticket services limited. 2024</p>
+        <div class="flex gap-4 text-white">
           <p>Terms & condition</p>
           <p>Return & refund policy</p>
           <p>Privacy policy</p>
