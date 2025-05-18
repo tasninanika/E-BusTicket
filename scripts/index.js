@@ -1,12 +1,10 @@
 const seats = document.querySelectorAll(".grid button");
-const seatCount = document.querySelector("span.bg-[#1DD100]");
-const seatContainer = document.querySelector(".bg-[#F7F8F8] .text-sm");
-const totalPrice = document.querySelectorAll("span")[totalPriceIndex()];
-const grandTotal = document.querySelectorAll("span")[grandTotalIndex()];
-const applyBtn = document.querySelector("button.bg-[#1DD100]");
-const couponInput = document.querySelector(
-  'input[placeholder="Have any cuppon?"]'
-);
+const seatCount = document.querySelector("#selected-seat-count");
+const seatContainer = document.querySelector("#selected-seat-list-");
+const totalPrice = document.querySelector("#total-price");
+const grandTotal = document.querySelector("#grand-total");
+const applyBtn = document.querySelector("#apply-coupon");
+const couponInput = document.querySelector("#coupon-code");
 
 let selectedSeats = [];
 let seatPrice = 550;
@@ -15,11 +13,19 @@ seats.forEach((seat) => {
   seat.addEventListener("click", () => {
     const seatNum = seat.textContent;
 
-    if (selectedSeats.includes(seatNum)) return;
+    if (selectedSeats.includes(seatNum)) {
+      // Deselect seat
+      selectedSeats = selectedSeats.filter((s) => s !== seatNum);
 
-    selectedSeats.push(seatNum);
-    seat.classList.remove("bg-gray-200");
-    seat.classList.add("bg-[#1DD100]", "text-white");
+      seat.classList.remove("bg-[#1DD100]", "text-white");
+      seat.classList.add("bg-gray-200", "text-gray-500");
+    } else {
+      // Select seat
+      selectedSeats.push(seatNum);
+
+      seat.classList.remove("bg-gray-200", "text-gray-500");
+      seat.classList.add("bg-[#1DD100]", "text-white");
+    }
 
     updateSummary();
   });
@@ -28,57 +34,38 @@ seats.forEach((seat) => {
 function updateSummary() {
   seatCount.textContent = selectedSeats.length;
 
-  // Clear existing entries
   seatContainer.innerHTML = "";
 
-  selectedSeats.forEach((seat) => {
+  selectedSeats.forEach((seatNum) => {
     seatContainer.innerHTML += `
-      <div class="flex justify-between text-sm mb-1">
-        <span>${seat}</span>
+      <div class="flex justify-between mb-1 w-full">
+        <span>${seatNum}</span>
         <span>Economy</span>
         <span>${seatPrice}</span>
-      </div>`;
+      </div>
+    `;
   });
 
   const total = selectedSeats.length * seatPrice;
-  totalPrice.textContent = `BDT ${total}`;
+  totalPrice.textContent = total;
 
   const coupon = couponInput.value.trim();
   const discount = getDiscount(coupon, total);
 
-  grandTotal.textContent = `BDT ${total - discount}`;
+  grandTotal.textContent = (total - discount).toFixed(2);
 }
 
-applyBtn.addEventListener("click", () => {
-  updateSummary();
-});
-
 function getDiscount(code, total) {
-  if (code === "NEW15") {
+  const c = code.replace(/\s+/g, "").toLowerCase();
+  if (c === "new15") {
     return total * 0.15;
-  } else if (code === "EID20") {
+  } else if (c === "couple20") {
     return total * 0.2;
   } else {
     return 0;
   }
 }
 
-function totalPriceIndex() {
-  const spans = document.querySelectorAll("span");
-  for (let i = 0; i < spans.length; i++) {
-    if (spans[i].textContent.includes("Total Price")) {
-      return i + 1;
-    }
-  }
-  return -1;
-}
-
-function grandTotalIndex() {
-  const spans = document.querySelectorAll("span");
-  for (let i = 0; i < spans.length; i++) {
-    if (spans[i].textContent.includes("Grand Total")) {
-      return i + 1;
-    }
-  }
-  return -1;
-}
+applyBtn.addEventListener("click", () => {
+  updateSummary();
+});
