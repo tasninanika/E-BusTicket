@@ -537,29 +537,25 @@
         </div>
       </section>
       <!-- Success Modal -->
-      <!-- Open the modal using ID.showModal() method -->
-      <dialog id="my_modal_1" class="modal">
-        <div class="bg-white p-8 rounded-lg text-center max-w-md w-full">
-          <img src="images/success.png" alt="Success" class="mx-auto mb-4" />
-          <h2 class="text-2xl font-bold text-[#27AE60] mb-2">Success</h2>
-          <p class="text-gray-600 mb-4">
-            Thank you for Booking Our Bus Seats. <br />
+      <div
+        id="success-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white p-8 rounded-xl text-center max-w-md">
+          <h2 class="text-green-600 text-2xl font-bold mb-4">Success</h2>
+          <p class="text-gray-700 mb-2">Thank you for Booking Our Bus Seats.</p>
+          <p class="text-gray-500 mb-6">
             We are working hard to find the best service and deals for you.
-            <br />
             Shortly you will find a confirmation in your email.
           </p>
-          <div class="modal-action text-center">
-            <form method="dialog">
-              <!-- if there is a button in form, it will close the modal -->
-              <button
-                class="btn bg-[#1DD100] text-white px-6 py-2 rounded-full"
-              >
-                Close
-              </button>
-            </form>
-          </div>
+          <button
+            id="close-modal"
+            class="bg-[#1DD100] text-white px-6 py-2 rounded-full font-semibold"
+          >
+            Continue
+          </button>
         </div>
-      </dialog>
+      </div>
 
       <!-- booking end -->
     </main>

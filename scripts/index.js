@@ -94,10 +94,32 @@ nextBtn.addEventListener("click", () => {
   modal.classList.remove("hidden");
 });
 
-// Close modal function
-function closeModal() {
+// Continue button to close modal and clear everything
+document.querySelector("#close-modal").addEventListener("click", () => {
+  // Hide the modal
   modal.classList.add("hidden");
 
-  // Optional: reset everything
-  // location.reload();
-}
+  // Clear input fields
+  nameInput.value = "";
+  emailInput.value = "";
+  phoneInput.value = "";
+
+  // Reset seat selection
+  selectedSeats.forEach((seatNum) => {
+    const seat = Array.from(seats).find((s) => s.textContent === seatNum);
+    if (seat) {
+      seat.classList.remove("bg-[#1DD100]", "text-white");
+      seat.classList.add("bg-gray-200", "text-gray-500");
+    }
+  });
+  selectedSeats = [];
+
+  // Reset summary
+  seatCount.textContent = "0";
+  seatContainer.innerHTML = "";
+  totalPrice.textContent = "0";
+  grandTotal.textContent = "0";
+
+  // Optionally clear coupon input
+  couponInput.value = "";
+});
