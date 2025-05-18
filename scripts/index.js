@@ -44,7 +44,7 @@ function updateSummary() {
       <div class="flex justify-between mb-1 w-full">
         <span>${seatNum}</span>
         <span>Economy</span>
-        <span>BDT ${seatPrice}</span>
+        <span>${seatPrice}</span>
       </div>
     `;
   });
