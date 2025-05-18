@@ -11,17 +11,6 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              raleway: ["Raleway", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
     <!-- Raleway fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -249,7 +238,7 @@
       <section
         class="my-20 py-20 border-t-2 border-[#1DD100] rounded-3xl flex flex-col bg-[#F7F8F8]"
       >
-        <h2 class="text-[40px] font-semibold text-center mb-6">
+        <h2 class="text-[40px] font-semibold text-center mb-6 font-raleway">
           P.H Paribahan
         </h2>
         <p class="text-[18px] text-[#03071299] text-center mb-12">
@@ -272,7 +261,9 @@
                     class="w-[68px] h-[48px]"
                   />
                   <div>
-                    <h2 class="text-4xl font-bold">Greenline Paribahan</h2>
+                    <h2 class="text-4xl font-bold font-raleway">
+                      Greenline Paribahan
+                    </h2>
                     <p class="text-[18px] text-[#03071299]">
                       Coach-009-WEB ! AC_Business
                     </p>
@@ -300,7 +291,7 @@
                   class="flex justify-between border-b border-dashed border-gray-300 py-2 text-[18px] font-semibold"
                 >
                   <span class="text-[#03071299] py-4">Departure Time</span>
-                  <span class="text-[#030712] py-4">9:00 PM</span>
+                  <span class="text-[#030712] py-4 font-raleway">9:00 PM</span>
                 </div>
                 <div
                   class="grid grid-cols-3 gap-5 text-center py-6 text-sm font-medium"
@@ -318,20 +309,22 @@
               </div>
             </div>
 
-            <!-- Divider PNG at 60% -->
+            <!-- Divider PNG -->
             <img
               src="images/info-devider.png"
               alt="divider"
               class="h-full w-auto absolute left-[78%] top-0 -translate-x-1/2 z-10"
             />
 
-            <!-- Right Side (40%) -->
+            <!-- Right Side -->
             <div
-              class="w-[40%] flex flex-col justify-center items-center text-center p-6 gap-2"
+              class="w-[30%] flex flex-col justify-center items-center text-center p-6 gap-2"
             >
-              <img src="images/taka-icon.png" alt="Taka Icon" class="w-6 h-6" />
-              <h2 class="text-2xl font-bold text-[#030712]">550 Taka</h2>
-              <p class="text-[#03071299] text-sm">Per Seat</p>
+              <img src="images/fare.png" alt="Taka Icon" class="w-12 h-12" />
+              <h2 class="text-3xl font-bold text-[#030712] font-raleway">
+                550 Taka
+              </h2>
+              <p class="text-[#03071299] text-2xl font-raleway">Per Seat</p>
             </div>
           </div>
         </div>
